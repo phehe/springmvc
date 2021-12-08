@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class MappingController {
 
-    private Logger log = LoggerFactory.getLogger(getClass());
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     /**
      * 기본 요청
@@ -17,7 +17,7 @@ public class MappingController {
     //     @RequestMapping({"/hello-basic","/hello-go"})   --> mapping 여러개 가능 {안에}
     @RequestMapping("/hello-basic")
     public String helloBasic() {
-        log.info("helloBasic");
+        logger.info("helloBasic");
         return "ok";
     }
 
@@ -27,7 +27,7 @@ public class MappingController {
      */
     @RequestMapping(value = "/mapping-get-v1", method = RequestMethod.GET)
     public String mappingGetV1() {
-        log.info("mappingGetV1");
+        logger.info("mappingGetV1");
         return "ok";
     }
 
@@ -43,7 +43,7 @@ public class MappingController {
      */
     @GetMapping(value = "/mapping-get-v2")
     public String mappingGetV2() {
-        log.info("mapping-get-v2");
+        logger.info("mapping-get-v2");
         return "ok";
     }
 
@@ -57,7 +57,7 @@ public class MappingController {
 
     @GetMapping("/mapping/{userId}")
     public String mappingPath(@PathVariable("userId") String data) {
-        log.info("mappingPath userId={}", data);
+        logger.info("mappingPath userId={}", data);
         return "ok";
     }
 
@@ -66,7 +66,7 @@ public class MappingController {
      * */
     @GetMapping("/mapping/users/{userId}/orders/{orderId}")
     public String mappingPath(@PathVariable String userId, @PathVariable Long orderId) {
-        log.info("mappingPath userId={}, orderId={}", userId, orderId);
+        logger.info("mappingPath userId={}, orderId={}", userId, orderId);
         return "ok";
     }
 }
